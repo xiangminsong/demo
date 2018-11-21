@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sn.mapper.CustomerMapper">
+
+    <resultMap type="com.sn.po.Customer" id="resultMap">
+        <result property="custId" column="cust_id" javaType="long" jdbcType="INTEGER"/>
+        <result property="custName" column="cust_name" javaType="string" jdbcType="VARCHAR"/>
+        <result property="custPhone" column="cust_phone" javaType="string" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="queryById" resultMap="resultMap">
+    select * from Customer where cust_id = #{custId}
+  </select>
+  
+   <delete id="deleteById" >
+  	delete from Customer where cust_id=#{custId}
+  </delete> 
+  
+</mapper>
